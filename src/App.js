@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import LandingPage from './pages/LandingPage/LandingPage';
+import ErrorPage from './pages/Error/Error';
+import Home from './pages/Home/Home';
+import Standup from './pages/Standup/Standup';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  // Route,
+} from "react-router-dom";
 
 function App() {
+  const [checked, setChecked] = useState([])
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+      errorElement: <ErrorPage />,
+    },{
+      path: "/home",
+      element: <Home checked={checked} setChecked={setChecked} />,
+      errorElement: <ErrorPage />,
+    },{
+      path: "/standup",
+      element: <Standup checked={checked} setChecked={setChecked}/>,
+      errorElement: <ErrorPage />,
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Marcos edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
 export default App;
+
+
+
+
+
+

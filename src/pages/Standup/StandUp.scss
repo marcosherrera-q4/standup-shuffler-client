@@ -1,0 +1,88 @@
+
+@import "../../Styles/variables.scss";
+
+#container--standup{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .less-margin{
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+    .second-head{
+        font-size: 1.75rem;
+    }
+    a{
+        align-self: flex-start;
+    }
+    button{
+        margin-top: 30px;
+        width: max-content;
+        background-color: $alternative-color;
+        color: $light-color;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 7px 24px;
+    }
+    .member-image{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .member-name{
+        font-size: 1.5rem;
+    }
+    .subheader-standup{
+        position: relative;
+        margin-top: 50px;
+        margin-bottom: 5px;
+    }
+
+    .title-participated{
+        display: block;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    } 
+    .list-container{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        line-height: 30px;
+        span{
+            flex-basis: content;
+            margin-left: 20px;
+        }
+    }
+    .no-items-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        a{
+            color: $alternative-color;
+            font-weight: bold;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .mic-overlay{
+        position: absolute;
+        background-color: $light-color;
+        border-radius: 50%;
+        padding: 10px;
+        width: 30px;
+        top: 197px;
+        right: 3px;
+    }
+}
