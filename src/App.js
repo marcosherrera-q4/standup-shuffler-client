@@ -11,6 +11,7 @@ import {
 
 function App() {
   const [checked, setChecked] = useState([])
+  const [checked2, setChecked2] = useState([])
   const router = createBrowserRouter([
     {
       path: "/",
@@ -18,11 +19,11 @@ function App() {
       errorElement: <ErrorPage />,
     },{
       path: "/home",
-      element: <Home checked={checked} setChecked={setChecked} />,
+      element: <Home checked={checked} setChecked={setChecked} checked2={checked2} setChecked2={setChecked2}/>,
       errorElement: <ErrorPage />,
     },{
       path: "/standup",
-      element: <Standup checked={checked} setChecked={setChecked}/>,
+      element: <Standup checked={checked} setChecked={setChecked} checked2={checked2} setChecked2={setChecked2}/>,
       errorElement: <ErrorPage />,
     },
   ]);

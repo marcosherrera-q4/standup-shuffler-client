@@ -33,9 +33,14 @@ const Home = (props) => {
   // const [checked, setChecked] = useState([])
 const checked = props.checked;
 const setChecked = props.setChecked;
+const checked2 = props.checked2;
+const setChecked2 = props.setChecked2;
 useEffect(() => {
   setChecked([])
 }, [setChecked])
+useEffect(() => {
+  setChecked2([])
+}, [setChecked2])
 
 
   const handleCheck = (event) => {
@@ -46,6 +51,15 @@ useEffect(() => {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
     setChecked(updatedList);
+  };
+  const handleCheck2 = (event) => {
+    let updatedList = [...checked2];
+    if (event.target.checked) {
+      updatedList = [...checked2, {name: event.target.value, role: event.target.role, checked: event.target.checked, image: event.target.name }];
+    } else {
+      updatedList.splice(checked2.indexOf(event.target.value), 1);
+    }
+    setChecked2(updatedList);
   };
   const handleInputText = (event) => {
       setGuests({
@@ -85,14 +99,14 @@ useEffect(() => {
         <div className="container-members">
           {arrDCQ.map((el, index) =>
           <span key={index} className="inputs-members">
-            <label><input type="checkbox"  value={el.name} role={el.role} name={el.image} onChange={(event)=> handleCheck(event)}/> {el.name}</label>
+            <label><input type="checkbox"  value={el.name} role={el.role} name={el.image} onChange={(event)=> handleCheck2(event)}/> {el.name}</label>
           </span>
           )}
         </div>
         <div className="second-head">Additional Guests</div>
         { guestsArr.map((el, index) => 
           <span key={index} className="inputs-members">
-            <label><input type="checkbox"  value={el.name} role={el.role} name={el.image} onChange={(event)=> handleCheck(event)}/> {el.name}</label>
+            <label><input type="checkbox"  value={el.name} role={el.role} name={el.image} onChange={(event)=> handleCheck2(event)}/> {el.name}</label>
           </span>) 
         }
         {

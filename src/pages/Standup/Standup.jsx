@@ -9,6 +9,9 @@ import Mic from '../../components/mic/Mic'
 const Standup = (props) => {
   const checked = shuffle(props.checked);
   const setChecked = props.setChecked;
+  const checked2 = shuffle(props.checked2);
+  const setChecked2 = props.setChecked2;
+  const [shuffled] = useState([...checked, ...checked2])
   const date = new Date();
 
   const [participated, setParticipated] = useState([]);
@@ -17,10 +20,11 @@ const Standup = (props) => {
 
   const handleReset = ()=>{
     setChecked([]);
+    setChecked2([]);
   }
   const handleNextSpeaker = ()=>{
     setAppearHead(true);
-    let removed = checked.shift();
+    let removed = shuffled.shift();
     setParticipated([...participated, removed])
 
   }
@@ -30,15 +34,15 @@ const Standup = (props) => {
     <h1 className='less-margin'>Standup Meeting</h1>
     <Moment className='second-head' format="MMMM Do, YYYY">{date}</Moment>
 
-        { checked.length ?
+        { shuffled.length ?
           <>
           <h2 className='subheader-standup'>Currently speaking
           <Mic className='mic-overlay' />
           </h2>
-            <img className='member-image' src={checked[0].image} alt={checked[0].name} />
-            <div className='member-name'>{checked[0].name}
+            <img className='member-image' src={shuffled[0].image} alt={shuffled[0].name} />
+            <div className='member-name'>{shuffled[0].name}
             </div>
-            <div>{checked[0].role}</div>
+            <div>{shuffled[0].role}</div>
             <button onClick={handleNextSpeaker}>Next</button>
           </> : 
           <div className='no-items-container'>
