@@ -1,5 +1,6 @@
 # Standup Shuffler
 ## Competition to create the ultimate queuing tool
+- Deployed: https://standupshuffler.netlify.app/
 
 ### Goal
 - Create a small, visually appealing application with the tech of your choice that will shuffle through our squad members and create a speaking queue. 
